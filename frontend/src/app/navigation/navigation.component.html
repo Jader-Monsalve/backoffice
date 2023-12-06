@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar><i class="fa-solid fa-holly-berry" style="color: #e413e7;"></i> BERRY</mat-toolbar>
+    <mat-nav-list>
+      <h2>Dashboard</h2>
+      <a mat-list-item href="#"><i class="fa-regular fa-clock"></i> Dashboard</a>
+      <hr>
+      <h2>Pages</h2>
+      <p>Pages caption</p>
+      <a mat-list-item href="#"><i class="fa-solid fa-key"></i> Autentication</a>
+      <hr>
+      <h2>Utilities</h2>
+      <a mat-list-item href="#"><i class="fa-solid fa-font"></i> Typography</a>
+      <a mat-list-item href="#"><i class="fa-solid fa-palette"></i> Color</a>
+      <a mat-list-item href="#"><i class="fa-solid fa-circle-half-stroke"></i> Shadow</a>
+      <a mat-list-item href="#"><i class="fa-solid fa-icons"></i> Icons</a>
+      <hr>
+      <br>
+      <a mat-list-item href="#"><i class="fa-solid fa-gear"></i> Sample page</a>
+      <a mat-list-item href="#"><i class="fa-solid fa-question"></i> Documentation</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    <div class="navbar">
+      <div>
+        <input type="search" placeholder="Search">
+      </div>
+      <div>
+          <a href=""><i class="fa-solid fa-user"></i></a>
+          <a href=""><i class="fa-solid fa-gear"></i></a>
+          <a href=""><i class="fa-solid fa-bell"></i></a>
+        </div>
+    </div>
+</mat-toolbar>
+    <!-- Add Content Here -->
+    <app-dashboard></app-dashboard>
+  </mat-sidenav-content>
+</mat-sidenav-container>
